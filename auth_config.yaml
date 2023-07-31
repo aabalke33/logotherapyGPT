@@ -1,0 +1,13 @@
+credentials:
+  usernames:
+    user:
+      email: aabalke33@gmail.com
+      name: User
+      password: $2b$12$x.TrOZp0U38wdAkZX3i29eB0yCt/z2pV55DKfU3836rC/wtzqRfgi
+
+cookie:
+  expiry_days: 0
+  key: random_signature_key # Must be string
+  name: random_cookie_name
+preauthorized:
+  emails:
