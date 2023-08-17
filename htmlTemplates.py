@@ -13,11 +13,20 @@ css = '''
     background-color: #736383;
     margin-bottom: 2.5rem;
 }
+.chat-message.source {
+    background-color: #ac9eba;
+    margin-bottom: 2.5rem;
+}
 .chat-message .message {
   width: 100%;
   padding: 0 1.5rem;
   color: #fff;
 }
+'''
+source_template = '''
+<div class="chat-message source">
+    <div class="message">{{MSG}}</em></div>
+</div>
 '''
 
 bot_template = '''
