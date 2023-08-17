@@ -1,23 +1,33 @@
 import os
-from langchain.document_loaders import PDFMinerLoader, TextLoader
-from db import db
+from chromadb.config import Settings
+from langchain.document_loaders import CSVLoader, PDFMinerLoader, TextLoader, UnstructuredExcelLoader, Docx2txtLoader
 
 question = None
 
-root = os.path.dirname(os.path.realpath(__file__))
+ROOT_DIRECTORY = os.path.dirname(os.path.realpath(__file__))
 
-SOURCE_DIRECTORY = f"{root}/SOURCE_DOCUMENTS"
+SOURCE_DIRECTORY = f"{ROOT_DIRECTORY}/SOURCE_DOCUMENTS"
 
-db_all = db("all", root)
-db_frankl = db("frankl", root)
-db_inst = db("inst", root)
+PERSIST_DIRECTORY = f"{ROOT_DIRECTORY}/DB"
 
-INGEST_THREADS = os.cpu_count()
+INGEST_THREADS = os.cpu_count() or 8
+
+CHROMA_SETTINGS = Settings(
+    chroma_db_impl="duckdb+parquet",
+    persist_directory=PERSIST_DIRECTORY,
+    anonymized_telemetry=False
+)
 
 DOCUMENT_MAP = {
     ".txt": TextLoader,
+    ".md": TextLoader,
+    ".py": TextLoader,
     ".pdf": PDFMinerLoader,
+    ".csv": CSVLoader,
+    ".xls": UnstructuredExcelLoader,
+    ".xlsx": UnstructuredExcelLoader,
+    ".docx": Docx2txtLoader,
+    ".doc": Docx2txtLoader,
 }
 
-# Default Instructor Model
 EMBEDDING_MODEL_NAME = "hkunlp/instructor-large"
