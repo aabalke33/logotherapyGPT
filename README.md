@@ -13,6 +13,10 @@ The demo will need to first load the model, this can take a few moments. Afterwa
 
 <em>Note: The demo is set to shutdown after 5 minutes of inactivity, be sure to interact with the demo at least every 5 minutes to keep your session open.</em>
 
+## Youtube Video Breakdown
+
+[<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/22086435/261465887-08f33056-764e-4054-a18c-d694ba9982d2.jpg" width="50%">](https://www.youtube.com/watch?v=P8HKdp_gxko)
+
 ## Goals
 The client requested a custom AI model to run a Question / Answer chatbot against specific logotherapy documents.
 The client did not want information outside of the documents being returned and wanted detailed answers.
